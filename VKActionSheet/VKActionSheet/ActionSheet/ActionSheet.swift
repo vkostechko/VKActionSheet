@@ -23,6 +23,7 @@ class ActionSheet: UIViewController {
     @IBOutlet private weak var titeLabel: UILabel!
     @IBOutlet private weak var tableView: UITableView!
     @IBOutlet private weak var stickView: UIView!
+    @IBOutlet private weak var stickContainerView: UIView!
     @IBOutlet private weak var coverView: UIView!
     @IBOutlet private weak var actionSheetView: UIView!
     @IBOutlet private weak var actionSheetBottomOffsetConstraint: NSLayoutConstraint!
@@ -39,6 +40,8 @@ class ActionSheet: UIViewController {
     var delegate: ActionSheetDelegate?
     
     // MARK: - Private Properties
+    
+    private var viewTranslation = CGPoint.zero
     
     private struct Constant {
         static let cellIdentifier = "ActionSheetCell"
@@ -69,6 +72,15 @@ class ActionSheet: UIViewController {
         tableView.rowHeight = 80.0
         tableView.dataSource = self
         tableView.delegate = self
+        
+        let tapGR = UITapGestureRecognizer(target: self, action: #selector(coverViewDidTap(_:)))
+        coverView.addGestureRecognizer(tapGR)
+        coverView.isUserInteractionEnabled = true
+        
+        let panGR = UIPanGestureRecognizer(target: self, action: #selector(stickViewDidPan(_:)))
+        stickContainerView.addGestureRecognizer(panGR)
+        stickContainerView.isUserInteractionEnabled = true
+        
         makeSheet(visible: false, animated: false)
     }
 
@@ -97,6 +109,31 @@ class ActionSheet: UIViewController {
     
     @IBAction private func coverViewDidTap(_ sender: Any) {
         close()
+    }
+    
+    @objc private func stickViewDidPan(_ sender: UIPanGestureRecognizer) {
+        
+        func animate(transform: CGAffineTransform) {
+            UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 0.7, initialSpringVelocity: 1, options: .curveEaseOut, animations: {
+                self.actionSheetView.transform = transform
+            })
+        }
+        
+        switch sender.state {
+        case .changed:
+            let translation = sender.translation(in: view)
+            if translation.y >= 0 {
+                viewTranslation = translation
+                animate(transform: CGAffineTransform(translationX: 0, y: self.viewTranslation.y))
+            }
+        case .ended:
+            if viewTranslation.y < actionSheetView.bounds.height / 2 {
+                animate(transform: .identity)
+           } else {
+               close()
+           }
+        default: break
+        }
     }
 
     // MARK: - Private
