@@ -84,12 +84,9 @@ class ActionSheet: UIViewController {
         makeSheet(visible: false, animated: false)
     }
 
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-
-        DispatchQueue.main.async { [weak self] in
-            self?.makeSheet(visible: true, animated: animated)
-        }
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        makeSheet(visible: true, animated: animated)
     }
     
     override func viewWillDisappear(_ animated: Bool) {
