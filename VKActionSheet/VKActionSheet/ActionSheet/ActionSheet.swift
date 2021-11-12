@@ -13,7 +13,6 @@ protocol ActionSheetItem {
     var isSelected: Bool { get }
 }
 
-
 protocol ActionSheetDataSource: AnyObject {
     func numberOfItems(in actionSheet: ActionSheet) -> Int
     func actionSheet(_ actionSheet: ActionSheet, itemAt index: Int) -> ActionSheetItem
