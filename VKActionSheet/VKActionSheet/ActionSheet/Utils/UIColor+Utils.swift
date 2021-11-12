@@ -9,5 +9,6 @@ import UIKit
 
 extension UIColor {
     
-    static let sheetGrayColor = UIColor(red: 0.921, green: 0.921, blue: 0.921, alpha: 1.0)
+    static let sheetGray = UIColor(red: 0.921, green: 0.921, blue: 0.921, alpha: 1.0)
+    static let sheetLightBlue = UIColor(red: 0.462, green: 0.838, blue: 1.0, alpha: 1.0)
 }

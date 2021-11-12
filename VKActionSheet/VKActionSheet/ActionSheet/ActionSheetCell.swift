@@ -27,8 +27,13 @@ class ActionSheetCell: UITableViewCell {
         super.awakeFromNib()
         
         let backgroundColorView = UIView()
-        backgroundColorView.backgroundColor = .sheetGrayColor
+        backgroundColorView.backgroundColor = .sheetGray
         selectedBackgroundView = backgroundColorView
+        
+        checkmarkImageView.round()
+        
+        photoImageView.makeBorder(width: 1.0, with: .sheetLightBlue)
+        checkmarkImageView.makeBorder(width: 1.0, with: .white)
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

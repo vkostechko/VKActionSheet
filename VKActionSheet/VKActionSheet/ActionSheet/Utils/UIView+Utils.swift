@@ -19,5 +19,10 @@ extension UIView {
         layer.cornerRadius = CGFloat(radius)
         layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
     }
+    
+    func makeBorder(width: Float, with color: UIColor) {
+        layer.borderWidth = CGFloat(width)
+        layer.borderColor = color.cgColor
+    }
 }
 

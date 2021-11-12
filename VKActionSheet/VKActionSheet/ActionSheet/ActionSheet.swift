@@ -27,6 +27,7 @@ class ActionSheet: UIViewController {
     @IBOutlet private weak var coverView: UIView!
     @IBOutlet private weak var actionSheetView: UIView!
     @IBOutlet private weak var actionSheetBottomOffsetConstraint: NSLayoutConstraint!
+    @IBOutlet private weak var actionSheetHeightConstraint: NSLayoutConstraint!
     
     // MARK: - Public Properties
     
@@ -45,6 +46,8 @@ class ActionSheet: UIViewController {
     
     private struct Constant {
         static let cellIdentifier = "ActionSheetCell"
+        static let maxHeight: Float = 400.0
+        static let rowHeight: CGFloat = 80.0
     }
     
     // MARK: - Lifecycle
@@ -69,7 +72,7 @@ class ActionSheet: UIViewController {
         tableView.register(UINib(nibName: "ActionSheetCell", bundle: nil),
                            forCellReuseIdentifier: Constant.cellIdentifier)
         tableView.separatorStyle = .none
-        tableView.rowHeight = 80.0
+        tableView.rowHeight = Constant.rowHeight
         tableView.dataSource = self
         tableView.delegate = self
         
@@ -81,6 +84,7 @@ class ActionSheet: UIViewController {
         stickContainerView.addGestureRecognizer(panGR)
         stickContainerView.isUserInteractionEnabled = true
         
+        updateSheetHeight(animated: false)
         makeSheet(visible: false, animated: false)
     }
 
@@ -140,10 +144,19 @@ class ActionSheet: UIViewController {
     }
     
     private func makeSheet(visible: Bool, animated: Bool = true) {
-        UIView.animate(withDuration: animated ? 0.3 : 0.0) { [weak self] in
-            self?.actionSheetBottomOffsetConstraint.priority = visible ? .defaultLow : .defaultHigh
-            self?.coverView.alpha = visible ? 1.0 : 0.0
-            self?.view.layoutIfNeeded()
+        UIView.animate(withDuration: animated ? 0.3 : 0.0) {
+            self.actionSheetBottomOffsetConstraint.priority = visible ? .defaultLow : .defaultHigh
+            self.coverView.alpha = visible ? 1.0 : 0.0
+            self.view.layoutIfNeeded()
+        }
+    }
+    
+    private func updateSheetHeight(animated: Bool = true) {
+        let contentHeight = Float(tableView.frame.origin.y) + Float(dataSource?.numberOfItems(in: self) ?? 0) * Float(Constant.rowHeight) + 20.0
+        let height = min(Constant.maxHeight, contentHeight)
+        UIView.animate(withDuration: animated ? 0.3 : 0.0) {
+            self.actionSheetHeightConstraint.constant = CGFloat(height)
+            self.view.layoutIfNeeded()
         }
     }
 }

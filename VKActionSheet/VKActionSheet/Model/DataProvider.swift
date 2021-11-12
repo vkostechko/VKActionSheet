@@ -14,5 +14,5 @@ struct DataProvider {
                             Company(name: "AmCham USA", photoURL: nil),
                             Company(name: "AmCham Poland", photoURL: nil),
                             Company(name: "AmCham Belarus", photoURL: nil),
-                            Company(name: "AmCham Germany", photoURL: nil),]
+                            Company(name: "AmCham Germany", photoURL: nil)]
 }

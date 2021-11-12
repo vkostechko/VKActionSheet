@@ -11,6 +11,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ActionSheet" customModule="VKActionSheet" customModuleProvider="target">
             <connections>
                 <outlet property="actionSheetBottomOffsetConstraint" destination="ebZ-wu-E7D" id="dZC-6e-5EF"/>
+                <outlet property="actionSheetHeightConstraint" destination="dQx-BY-faI" id="3pq-dm-zzJ"/>
                 <outlet property="actionSheetView" destination="Nch-cz-dis" id="ymD-Ja-CIa"/>
                 <outlet property="coverView" destination="nYY-r0-3Jb" id="vyO-Va-Ugc"/>
                 <outlet property="stickContainerView" destination="PVf-kh-Y1i" id="AVR-tf-Z5o"/>
@@ -31,7 +32,7 @@
                     <gestureRecognizers/>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Nch-cz-dis" userLabel="sheetView">
-                    <rect key="frame" x="0.0" y="658" width="428" height="268"/>
+                    <rect key="frame" x="0.0" y="526" width="428" height="400"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PVf-kh-Y1i">
                             <rect key="frame" x="181" y="0.0" width="66" height="37"/>
@@ -60,7 +61,7 @@
                             <nil key="highlightedColor"/>
                         </label>
                         <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="100" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="LFJ-WF-fXn">
-                            <rect key="frame" x="0.0" y="66" width="428" height="202"/>
+                            <rect key="frame" x="0.0" y="66" width="428" height="334"/>
                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         </tableView>
                     </subviews>
@@ -73,7 +74,7 @@
                         <constraint firstItem="LFJ-WF-fXn" firstAttribute="top" secondItem="SmY-JD-HZU" secondAttribute="bottom" constant="8" id="MZR-eY-oo3"/>
                         <constraint firstItem="PVf-kh-Y1i" firstAttribute="top" secondItem="Nch-cz-dis" secondAttribute="top" id="Q94-G4-IWq"/>
                         <constraint firstAttribute="bottom" secondItem="LFJ-WF-fXn" secondAttribute="bottom" id="Tau-vs-V7B"/>
-                        <constraint firstAttribute="height" constant="268" id="dQx-BY-faI"/>
+                        <constraint firstAttribute="height" priority="750" constant="400" id="dQx-BY-faI"/>
                         <constraint firstAttribute="trailing" secondItem="LFJ-WF-fXn" secondAttribute="trailing" id="oaE-or-L8T"/>
                         <constraint firstItem="SmY-JD-HZU" firstAttribute="top" secondItem="Nch-cz-dis" secondAttribute="top" constant="37" id="q4c-4q-6A3"/>
                         <constraint firstAttribute="width" constant="375" id="ua1-ld-vW6"/>
@@ -107,6 +108,7 @@
             <constraints>
                 <constraint firstItem="Nch-cz-dis" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" id="1Z0-0R-vmW"/>
                 <constraint firstAttribute="bottom" secondItem="nYY-r0-3Jb" secondAttribute="bottom" id="8D5-Gy-IC3"/>
+                <constraint firstItem="Nch-cz-dis" firstAttribute="top" relation="greaterThanOrEqual" secondItem="vUN-kp-3ea" secondAttribute="top" id="9EB-AN-RUS"/>
                 <constraint firstItem="nYY-r0-3Jb" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="Kar-gI-IAg"/>
                 <constraint firstItem="Nch-cz-dis" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="QWL-IL-noX"/>
                 <constraint firstItem="Nch-cz-dis" firstAttribute="bottom" secondItem="iN0-l3-epB" secondAttribute="bottom" priority="250" constant="500" id="ebZ-wu-E7D"/>
