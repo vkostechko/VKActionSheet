@@ -7,6 +7,13 @@
 
 import UIKit
 
+protocol ActionSheetItem {
+    var title: String { get }
+    var imageURL: URL? { get }
+    var isSelected: Bool { get }
+}
+
+
 protocol ActionSheetDataSource: AnyObject {
     func numberOfItems(in actionSheet: ActionSheet) -> Int
     func actionSheet(_ actionSheet: ActionSheet, itemAt index: Int) -> ActionSheetItem

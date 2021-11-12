@@ -7,12 +7,6 @@
 
 import UIKit
 
-protocol ActionSheetItem {
-    var title: String { get }
-    var photoURL: String? { get }
-    var isSelected: Bool { get }
-}
-
 class ActionSheetCell: UITableViewCell {
     
     // MARK: - Outlets
@@ -20,6 +14,10 @@ class ActionSheetCell: UITableViewCell {
     @IBOutlet private weak var photoImageView: UIImageView!
     @IBOutlet private weak var checkmarkImageView: UIImageView!
     @IBOutlet private weak var mainTextLabel: UILabel!
+    
+    // MARK: - Properties
+    
+    private var imageLoadingTask: URLSessionDataTask?
     
     // MARK: - Lifecycle
     
@@ -61,17 +59,21 @@ class ActionSheetCell: UITableViewCell {
         
         mainTextLabel.text = item.title
         checkmarkImageView.isHidden = !item.isSelected
-        
-        // TODO: load image
+        cancelImageLoading()
+        imageLoadingTask = photoImageView.setupImage(from: item.imageURL)
     }
     
     // MARK: - Private
     
     private func cleanUp() {
+        cancelImageLoading()
         photoImageView.image = UIImage(named: "no-photo")
         checkmarkImageView.isHidden = true
         mainTextLabel.text = ""
-        
-        // TODO: cancel image loading
+    }
+    
+    private func cancelImageLoading() {
+        imageLoadingTask?.cancel()
+        imageLoadingTask = nil
     }
 }

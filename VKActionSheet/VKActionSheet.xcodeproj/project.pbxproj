@@ -21,6 +21,7 @@
 		2FDB0118273D7F520027EB50 /* ActionSheet.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2FDB0117273D7F520027EB50 /* ActionSheet.xib */; };
 		2FDB011B273DB8D00027EB50 /* UIView+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FDB011A273DB8D00027EB50 /* UIView+Utils.swift */; };
 		2FDB011D273DCDA60027EB50 /* UIColor+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FDB011C273DCDA60027EB50 /* UIColor+Utils.swift */; };
+		2FDB011F273DEC180027EB50 /* UIImageView+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FDB011E273DEC180027EB50 /* UIImageView+Utils.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +41,7 @@
 		2FDB0117273D7F520027EB50 /* ActionSheet.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ActionSheet.xib; sourceTree = "<group>"; };
 		2FDB011A273DB8D00027EB50 /* UIView+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Utils.swift"; sourceTree = "<group>"; };
 		2FDB011C273DCDA60027EB50 /* UIColor+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Utils.swift"; sourceTree = "<group>"; };
+		2FDB011E273DEC180027EB50 /* UIImageView+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Utils.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,6 +113,7 @@
 			children = (
 				2FDB011A273DB8D00027EB50 /* UIView+Utils.swift */,
 				2FDB011C273DCDA60027EB50 /* UIColor+Utils.swift */,
+				2FDB011E273DEC180027EB50 /* UIImageView+Utils.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -196,6 +199,7 @@
 				2FDB00F2273D656E0027EB50 /* AppDelegate.swift in Sources */,
 				2FDB00F4273D656E0027EB50 /* SceneDelegate.swift in Sources */,
 				2FDB0116273D7F330027EB50 /* ActionSheet.swift in Sources */,
+				2FDB011F273DEC180027EB50 /* UIImageView+Utils.swift in Sources */,
 				2FDB0110273D6A7C0027EB50 /* Company.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

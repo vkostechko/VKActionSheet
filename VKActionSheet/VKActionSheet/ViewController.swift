@@ -42,4 +42,5 @@ extension ViewController: ActionSheetDelegate {
 extension Company: ActionSheetItem {
     var title: String { name }
     var isSelected: Bool { false }
+    var imageURL: URL? { URL(string: photoURL ?? "") }
 }
