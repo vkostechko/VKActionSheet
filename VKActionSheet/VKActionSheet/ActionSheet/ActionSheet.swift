@@ -1,5 +1,5 @@
 //
-//  VKActionSheetViewController.swift
+//  ActionSheet.swift
 //  VKActionSheet
 //
 //  Created by Viachaslau Kastsechka on 11/11/21.
@@ -55,6 +55,7 @@ class ActionSheet: UIViewController {
         static let cellIdentifier = "ActionSheetCell"
         static let maxHeight: Float = 400.0
         static let rowHeight: CGFloat = 80.0
+        static let topCornerRadius: Float = 10.0
     }
     
     // MARK: - Lifecycle
@@ -110,7 +111,7 @@ class ActionSheet: UIViewController {
         super.viewDidLayoutSubviews()
         
         stickView.round()
-        actionSheetView.roundTopCorners(radius: 10.0)
+        actionSheetView.roundTopCorners(radius: Constant.topCornerRadius)
     }
     
     // MARK: - Actions

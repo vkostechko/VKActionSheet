@@ -1,6 +1,6 @@
 //
 //  ViewController.swift
-//  VKActionSheet
+//  ActionSheet
 //
 //  Created by Viachaslau Kastsechka on 11/11/21.
 //
